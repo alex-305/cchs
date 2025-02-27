@@ -12,7 +12,7 @@
                 {{ student }} 
                 <form action="{{ url_for('remove_student') }}" method="post" style="display:inline;">
                     <input type="hidden" name="name" value="{{ student }}">
-                    <button type="submit" style="border:none; background:none; color:red; cursor:pointer;">❌</button>
+                    <button type="submit">❌</button>
                 </form>
             </li>
         {% endfor %}
