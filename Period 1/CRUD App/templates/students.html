@@ -5,12 +5,16 @@
     <title>Student List</title>
 </head>
 <body>
+
+    {% include "add_students.html" %}
+
     <h1>Student List</h1>
     <ul>
         {% for student in students %}
             <li>
                 {{ student }} 
-                <form action="{{ url_for('remove_student') }}" method="post" style="display:inline;">
+                <a href="{{ url_for('update_student', index=loop.index0) }}">✏️</a>
+                <form action="{{ url_for('remove_student', index=loop.index0) }}" method="post" style="display:inline;">
                     <input type="hidden" name="name" value="{{ student }}">
                     <button type="submit">❌</button>
                 </form>
@@ -18,6 +22,5 @@
         {% endfor %}
     </ul>
     <br>
-    <a href="/add/students">Add More Students</a>
 </body>
 </html>
