@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="page-title">Add Student</h1>
+    <form action="/student/create" method="POST" class="student-form">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" class="input-field">
+        <button type="submit" class="btn">Add Student</button>
+    </form>
+</body>
+</html>

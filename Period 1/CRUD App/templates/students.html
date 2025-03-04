@@ -2,25 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Student List</title>
 </head>
 <body>
 
-    {% include "add_students.html" %}
+    {% include "add_student.html" %}
 
-    <h1>Student List</h1>
-    <ul>
+    <h1 class="page-title">Students</h1>
+    <ul class="student-list">
         {% for student in students %}
-            <li>
-                {{ student }} 
-                <a href="{{ url_for('update_student', index=loop.index0) }}">✏️</a>
-                <form action="{{ url_for('remove_student', index=loop.index0) }}" method="post" style="display:inline;">
-                    <input type="hidden" name="name" value="{{ student }}">
-                    <button type="submit">❌</button>
-                </form>
-            </li>
+        <li class="student-item">
+            <span>{{ student }}</span>
+            <a href="{{ url_for('update_student', index=loop.index0) }}" class="btn update-btn">Update</a>
+            <form action="{{ url_for('delete_student', index=loop.index0) }}" 
+            method="post" style="display: inline;">
+                <button class="btn delete-btn" type="submit">X</button>
+            </form>
+        </li>
         {% endfor %}
     </ul>
-    <br>
+
 </body>
 </html>

@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
 </head>
 <body>
-    <h1>Update Student</h1>
-    <form action="/student/update/{{ index }}" method="post">
-        <input type="hidden" name="index" value="{{ index }}">
-        <input type="text" name="name" placeholder="Enter student name" value="{{ student }}" required>
-        <button type="submit">Update Student</button>
+    <h1 class="page-title">Update Student</h1>
+    <form class="student-form" action="/student/{{index}}/update" method="post">
+        <input type="hidden" name="index" value="{{index}}">
+        <input class="input-field" type="text" name="name" value="{{student}}" required>
+        <button class="btn update-btn" type="submit">Update Student</button>
     </form>
-    <br>
-    <a href="{{ url_for('view_students') }}">Back to Student List</a>
 </body>
 </html>
