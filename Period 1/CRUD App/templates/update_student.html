@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Update{% endblock %}
+
+{% block content %}
+
     <h1 class="page-title">Update Student</h1>
     <form class="student-form" action="/student/{{index}}/update" method="post">
         <input type="hidden" name="index" value="{{index}}">
         <input class="input-field" type="text" name="name" value="{{student}}" required>
         <button class="btn update-btn" type="submit">Update Student</button>
     </form>
-</body>
-</html>
+
+{% endblock %}
+

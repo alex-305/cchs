@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Student List</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
 
     {% include "add_student.html" %}
-
     <h1 class="page-title">Students</h1>
     <ul class="student-list">
         {% for student in students %}
@@ -24,5 +19,4 @@
         {% endfor %}
     </ul>
 
-</body>
-</html>
+    {% endblock %}
