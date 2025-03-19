@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="quiz-container" data-quiz-id="{{ quiz_id }}">
+  <h2>Quiz</h2>
+  <form id="quiz-form" class="something">
+    <div id="questions">
+    </div>
+    <br>
+    <input type="submit" value="Submit Answers">
+  </form>
+  <div id="result"></div>
+</div>
+{% endblock %}

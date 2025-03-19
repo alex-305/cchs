@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Accomplishments{% endblock %}
+
+{% block content %}
+    <h1>My Accomplishments</h1>
+    <div class="accomplishments-container">
+        {% for acc in accomplishments_list %}
+            <div class="accomplishment-card">
+                <h2>{{ acc.title }}</h2>
+                <p>{{ acc.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
