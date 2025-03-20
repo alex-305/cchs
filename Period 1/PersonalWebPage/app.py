@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import redirect, render_template, request, url_for
+from database import create_app, db, Comment
 
-app = Flask(__name__)
+app = create_app()
 
 accomplishments_list = [
     {
@@ -13,9 +14,12 @@ accomplishments_list = [
         },
 ]
 
+comments = []
+
 @app.route("/")
 def home():
-    return render_template("index.html")
+    comments = Comment.query.all()
+    return render_template("index.html", comments=comments)
 
 @app.route("/about")
 def about():
@@ -25,5 +29,17 @@ def about():
 def accomplishments():
     return render_template("accomplishments.html", accomplishments_list=accomplishments_list)
 
+@app.route("/add_comment", methods=["POST"])
+def add_comment():
+    content = request.form.get("content")
+
+    if content:
+        new_comment = Comment(content=content, username="Guest")
+        db.session.add(new_comment)
+        db.session.commit()
+
+    return redirect(url_for("home"))
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=2000)
