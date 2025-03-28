@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Meme Generator</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        form { margin: 20px; }
+        input, button { padding: 10px; margin: 5px; }
+        img { max-width: 80%; margin-top: 20px; border: 2px solid black; }
+    </style>
+</head>
+<body>
+    <h1>Flask Meme Generator</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required><br>
+        <input type="text" name="top_text" placeholder="Top Text" required><br>
+        <input type="text" name="bottom_text" placeholder="Bottom Text" required><br>
+        <button type="submit">Generate Meme</button>
+    </form>
+
+    {% if meme_path %}
+        <h2>Your Meme:</h2>
+        <img src="{{ meme_path }}" alt="Generated Meme">
+    {% endif %}
+</body>
+</html>
+
